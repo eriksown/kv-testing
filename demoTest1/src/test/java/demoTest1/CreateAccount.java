@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,6 +44,10 @@ public class CreateAccount extends Driver{
 		driver.findElement(By.id("lastname")).sendKeys("Ambo");
 		driver.findElement(By.name("email")).sendKeys("kierson.vigilla@uap.asia");
 		
+		//Scroll down
+		JavascriptExecutor scrollDown = (JavascriptExecutor)driver;
+		scrollDown.executeScript("window.scrollBy(0,600)");
+		
 		//Verify Password strength indicator
 		//driver.findElement(By.id("password")).sendKeys("1234abcd");
 		WebElement weakPassword = driver.findElement(By.id("password"));
@@ -62,7 +67,12 @@ public class CreateAccount extends Driver{
 		passwordMeter = driver.findElement(By.id("password-strength-meter-container")).getAttribute("class");
 		assertEquals(passwordMeter, "password-very-strong");
 		
-		driver.findElement(By.id("password-confirmation")).sendKeys("1234abcd");
+		
+		//Verify Confirm Password
+		driver.findElement(By.id("password-confirmation")).sendKeys("Password1");
+		driver.findElement(By.xpath("//div[@class=\"primary\"]/button[@type=\"submit\"]")).click();
+		String passwordConfirm = driver.findElement(By.id("password-confirmation-error")).getText();
+		assertEquals(passwordConfirm, "Please enter the same value again.");
 		
 		
 		driver.quit();
