@@ -2,19 +2,90 @@ Prepared By:
 Kierson Vigilla
 
 1.0 INTRODUCTION
-
+  This document describes the overall testing plan for the e-commerce demo site, LUMA.
+  The test plan specifies the objective, scope, and testing strategy for the site. It also
+  includes the estimates on resource allocation and testing effor for the website.
 
 2.0 OBJECTIVE
+  The objective of the test is to verify the common functionalities of the LUMA website
+  if they are performing in accordance with the specifications. The tests execute the test
+  cases and record the test results either Passed or Failed. At the end of testing, it concludes
+  the quality of the software and be used as one of the criteria in releasing the software.
 
+3.0 SCOPES
+  The scope of this test includes the functionalities of creating an account,
+  signing in, adding and removing items in shopping cart, and checking out online.
 
-3.0 SCOPE
-
+  This test does not include functionalities pertaining to fulfilling online orders, subscribing
+  to mailing list, and contacting the site owners via the Contact Us.
 
 4.0 FEATURES
-
+  Create Account
+  Sign in/ sign out
+  Search store
+  Add item/s to cart
+  Remove item/s to cart
+  Checkout items in cart
 
 5.0 TEST STRATEGY
+  Functional testing of the features will be executed using both manual and automation. Automated
+  testing will run using Java and Selenium under Firefox browser. Manual testing will be performed
+  on Chrome browser.
 
+  Entry criteria for test execution is when the migration of testable codes are deployed
+  in the test environment. Codes shall be comprised with the features specified by the
+  stakeholders, and the fixes for the defects/bugs raised during the development phase.
+  Note: No further deployments should be made once the test execution starts. If such event
+  occurs, test execution will be reset or will have a targeted testing.
+
+  Exit criteria is when the features and bug fixes are marked as Passed:
+    100% Tests executed.
+    Test results for all tests are captured and documented.
+    95% Tests get the Passed status.
+    No outstanding defect with high severity.
+    All defects during test execution are documented.
+    Low severity defects are marked as invalid or deffered for the next release.
+
+  Defect management is categorized according to the severity of the issue being affected.
+  Defect is captured and discussed on the next daily stand-up meeting to mitigate and perform
+  the necessary next steps. This is captured using the bug reporting tool with the following
+  categories:
+
+    Critical - Defects which causes the system to crash. It may also cause the system to return
+    unexpected errors or errors that are not handled properly by the codes.
+
+    High - Defects which affects the normal flow of the program and does not have a workaround
+    for the user to navigate through. It may also be a showstopper for any related feature.
+
+    Medium - Defects which affects the quality of the system but with workaround for the user to
+    navigate through. User will still be able to complete the workflow of the system.
+
+    Low - Defects which has a minor or no heavy impact on the workflow of the system. It may consist
+    of trivial behavior of some web elements or UI issue which affects the aesthetics of the website.
+
+  In the event where a defect is encountered relating to a feature or module being developed, the
+  related ticket of the feature will be linked to the defect ticket. Defect tickets will have supporting
+  steps on how to recreate the defect and a screenshot to show which page/feature it is affecting.
+
+  Defect testing/retesting is assigend back to the QA who initially reported the defect to retest
+  the fixes and provide the relevant test results.
+
+  Each QA directly assesses the assigned feature to be developed. Test cases will be updated or created
+  accordingly based on the description of the feature indicated on the ticket/requirement. Created test
+  cases will be available to all the development team members. Created test cases will be reviewed by
+  the Business Analyst to check whether the scenarios corresponds to the requirements. Any updates on the
+  test cases will directly be updated and will still be available to all development team members.
+
+  Each QA performs test execution asigned to them and will update the test case with the test results
+  accordingly. Test results will comprise of the actual result or behavior of the feature under test
+  and a screenshot to show evidence of the behavior. QA will also indicate either the test is Passed
+  or Failed. Tickets will be reopened and assigned back to the Developer who worked on the feature if
+  there is an issue with the behavior or if the actual test results are not the same with the expected
+  test results.
+
+  QA will have defect triage meetings every after after sprint grooming in order to assess both outstanding
+  and deferred defects. This will also ensure that all reported defects are discussed and mitigated before
+  performing regression testing.
 
 6.0 ASSUMPTIONS
 
