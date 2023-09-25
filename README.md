@@ -1,2 +1,4 @@
 # kv-testing
- Sample Test Automation
+ Sample Test Automation using Selenium and Java, with TestNG.
+
+ 
