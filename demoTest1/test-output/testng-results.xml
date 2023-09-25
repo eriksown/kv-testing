@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-25T01:17:05 EDT" name="Suite" finished-at="2023-09-25T01:17:10 EDT" duration-ms="5155">
+  <suite started-at="2023-09-24T20:08:27 EDT" name="Suite" finished-at="2023-09-24T20:08:31 EDT" duration-ms="3614">
     <groups>
     </groups>
-    <test started-at="2023-09-25T01:17:05 EDT" name="Test" finished-at="2023-09-25T01:17:10 EDT" duration-ms="5155">
+    <test started-at="2023-09-24T20:08:27 EDT" name="Test" finished-at="2023-09-24T20:08:31 EDT" duration-ms="3614">
       <class name="demoTest1.CreateAccount">
-        <test-method signature="accessWebsite()[pri:0, instance:demoTest1.CreateAccount@cda4919]" started-at="2023-09-25T01:17:05 EDT" name="accessWebsite" finished-at="2023-09-25T01:17:10 EDT" duration-ms="5119" status="PASS">
+        <test-method signature="accessWebsite()[pri:0, instance:demoTest1.CreateAccount@7f4d9395]" started-at="2023-09-24T20:08:27 EDT" name="accessWebsite" finished-at="2023-09-24T20:08:31 EDT" duration-ms="3568" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accessWebsite -->
