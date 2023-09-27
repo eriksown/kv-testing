@@ -29,27 +29,61 @@ public class CreateAccount extends Driver{
 			System.out.println("The demo store website is not available");
 		}
 		
-		//Verify Home page loads successfully
+		
+	//Verify Home page loads successfully
 		String homeTitle = driver.getTitle();
 		assertEquals(homeTitle, "Home Page");
 		
-		//Verify Create an Account link available and redirects user to create customer account
+		
+	//Verify Create an Account link available and redirects user to create customer account
 		driver.findElement(By.linkText("Create an Account")).click();		
 		String newAccountTitle = driver.getTitle();
 		assertEquals(newAccountTitle, "Create New Customer Account");
 		
+		
+	//Verify that required field validations are NOT available upon initial load
+		WebDriverWait checkErrorFields = new WebDriverWait(driver,Duration.ofMillis(1));
+		checkErrorFields.until(ExpectedConditions.invisibilityOfElementLocated(By.id("firstname-error")));
+		System.out.println("Validation message for First Name not available");
+		checkErrorFields.until(ExpectedConditions.invisibilityOfElementLocated(By.id("lastname-error")));
+		System.out.println("Validation message for Last Name not available");
+		checkErrorFields.until(ExpectedConditions.invisibilityOfElementLocated(By.id("email_address-error")));
+		System.out.println("Validation message for Email Address not available");
+		checkErrorFields.until(ExpectedConditions.invisibilityOfElementLocated(By.id("password-error")));
+		System.out.println("Validation message for Password not available");
+		checkErrorFields.until(ExpectedConditions.invisibilityOfElementLocated(By.id("password-confirmation-error")));
+		System.out.println("Validation message for Confirm Password not available\n");
+		
+		
+	//Verify that validations are available for required fields
+		driver.findElement(By.xpath("//div[@class=\"primary\"]/button[@class=\"action submit primary\"]")).click();
+		checkErrorFields.until(ExpectedConditions.visibilityOfElementLocated(By.id("firstname-error")));
+		System.out.println("Validation message for First Name available");
+		checkErrorFields.until(ExpectedConditions.visibilityOfElementLocated(By.id("lastname-error")));
+		System.out.println("Validation message for Last Name available");
+		checkErrorFields.until(ExpectedConditions.visibilityOfElementLocated(By.id("email_address-error")));
+		System.out.println("Validation message for Email Address available");
+		checkErrorFields.until(ExpectedConditions.visibilityOfElementLocated(By.id("password-error")));
+		System.out.println("Validation message for Password available");
+		checkErrorFields.until(ExpectedConditions.visibilityOfElementLocated(By.id("password-confirmation-error")));
+		System.out.println("Validation message for Confirm Password available\n");
+		
+		
+	//Fill up fields
 		WebDriverWait waitPersonalInfoFields = new WebDriverWait(driver,Duration.ofSeconds(3));
 		waitPersonalInfoFields.until(ExpectedConditions.visibilityOfElementLocated(By.id("form-validate")));
 		driver.findElement(By.id("firstname")).sendKeys("Apo");
 		driver.findElement(By.id("lastname")).sendKeys("Ambo");
 		driver.findElement(By.name("email")).sendKeys("kierson.vigilla@uap.asia");
 		
-		//Scroll down
+		
+	//Scroll down
 		JavascriptExecutor scrollDown = (JavascriptExecutor)driver;
 		scrollDown.executeScript("window.scrollBy(0,600)");
 		
-		//Verify Password strength indicator
-		//driver.findElement(By.id("password")).sendKeys("1234abcd");
+		
+	//Verify Password strength indicator
+	//Using the usual sendKeys() will not trigger the password-meter [driver.findElement(By.id("")).sendKeys("")]
 		WebElement weakPassword = driver.findElement(By.id("password"));
 		new Actions(driver).sendKeys(weakPassword, "1234abcd").perform();		
 		String passwordMeter = driver.findElement(By.id("password-strength-meter-container")).getAttribute("class");
@@ -68,7 +102,7 @@ public class CreateAccount extends Driver{
 		assertEquals(passwordMeter, "password-very-strong");
 		
 		
-		//Verify Confirm Password
+	//Verify Confirm Password
 		driver.findElement(By.id("password-confirmation")).sendKeys("Password1");
 		driver.findElement(By.xpath("//div[@class=\"primary\"]/button[@type=\"submit\"]")).click();
 		String passwordConfirm = driver.findElement(By.id("password-confirmation-error")).getText();
