@@ -39,12 +39,17 @@ Kierson Vigilla
   occurs, test execution will be reset or will have a targeted testing.
 
   Exit criteria is when the features and bug fixes are marked as Passed:
-    100% Tests executed.
-    Test results for all tests are captured and documented.
-    95% Tests get the Passed status.
-    No outstanding defect with high severity.
-    All defects during test execution are documented.
-    Low severity defects are marked as invalid or deffered for the next release.
+    - 100% Tests executed.
+    - Test results for all tests are captured and documented.
+    - 95% Tests get the Passed status.
+    - No outstanding defect with high severity.
+    - All defects during test execution are documented.
+    - Low severity defects are marked as invalid or deffered for the next release.
+
+  Suspension criteria is when the number of issues found during integration and regression testing
+  comprise at least 50% of the test cases. Testing may also be suspended if there are impending
+  connection issues with the server of the test environment where the release candidate software
+  is deployed.
 
   Defect management is categorized according to the severity of the issue being affected.
   Defect is captured and discussed on the next daily stand-up meeting to mitigate and perform
@@ -87,16 +92,54 @@ Kierson Vigilla
   and deferred defects. This will also ensure that all reported defects are discussed and mitigated before
   performing regression testing.
 
-6.0 ASSUMPTIONS
+6.0 RISK ASSUMPTIONS
+  Itemized below are the risks of the prejoect which affects the testing procedures or the execution of
+  the test plan:
+    - Tight Deadline: Delayed deployment of release candidate software in the test rnvironment will create
+      a bottleneck for QAs. Testing cannot be extended due to the UAT schedule in place.
+      Mitigation: QA will add buffer to the schedule and prepare the test data which can be added before
+      upgrading the test environment or before deploying the release candidate.
 
+    - Resource Allocation: QAs handling multiple projects may take time before getting on board or may allocate
+      part-time only for certain projects when doing integration or regression testing.
+      Mitigation: Projects will have certain QAs who will be the main tester. They will coordinate the scope to
+      other QAs when preparing for the integration testing or regression testing. They will also be readily
+      available to devote full-time on the assigned project once the integration testing or regression testing
+      started.
+
+    - Late Defects: Defects which are uncovered at the last stages of the testing will most likely be deffered
+      on the next sprint, except for those which poses a great impact on the business.
+      Mitigation: Plan for managing raised defects will be observed and followed in order to communicate the
+      defects accordingly to the development team.
+
+    - Test Environment Server: Issues on the server handling the test environment is not stable or if the server
+      is not readily available at the start of the tseting phase.
+      Mitigation: Development team will reach out to middleware team and give a heads up to do the necessary steps
+      in checking the stability of the connection on the server. Middleware team should be available to assist
+      if there comes a time where the server becomes unstable during testing.
 
 7.0 SCHEDULES
-
+  Day1 - Day2: Release candidate deployment and Test Data creation
+  Day3 - Day8: Test Execution (Manual and Automation)
+  Day9 - Day10: Test reporting and defect triage/mitigation
+  Day11 - Day12: Test Delivery and sign off
 
 8.0 RESOURCES
-
+  QA Manager - Coordinate testing schedules and resource allocation
+  QA Specialists - Perform manual testing, log defects and coordinate test results
+  Developer in Test - Perform functional testing using automation
+  Test Administrator - Middleware team member who will be the contact person for the server
 
 9.0 TOOLS
-
+  Laptops/Desktops running on Windows OS
+  Firefox and MS Edge browsers for manual test execution
+  Chrome for automated test execution
+  Separate test environment and server for running test automation  
 
 10.0 TEST DELIVERABLES
+  Test Report containing the summary of the test run and the logged defects
+  Test Cases containing test results with screenshots as evidence
+  Test Automation run result with error logs and execution logs
+  Itemized defect report
+  Test plan document
+  Test sign-off
