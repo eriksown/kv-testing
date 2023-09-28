@@ -20,7 +20,7 @@ public class CreateAccount extends Driver{
 	
 	String fName = "Apo";
 	String lName = "Ambo";
-	String email = "kierson.vigil.la@uap.asia";
+	String email = "kierson.vi.gilla@uap.asia";
 	
 	@Test
 	public void accessWebsite() {
