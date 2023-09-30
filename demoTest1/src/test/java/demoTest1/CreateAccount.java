@@ -18,11 +18,12 @@ import org.testng.annotations.Test;
 public class CreateAccount extends Driver{
 	WebDriver driver = Driver.driver;
 	
-	String fName = "Apo";
-	String lName = "Ambo";
-	String email = "kierson.vigil.la@uap.asia";
+	static String fName = "Apo";
+	static String lName = "Ambo";
+	static String email = "kierson.vig.illa@uap.asia";
+	static String passkey = "Password123!!!";
 	
-	@Test
+	@Test (groups = "newAccount")
 	public void accessWebsite() {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		
@@ -101,7 +102,7 @@ public class CreateAccount extends Driver{
 		strongPassword.clear();
 		
 		WebElement veryStrongPassword = driver.findElement(By.id("password"));
-		new Actions(driver).sendKeys(veryStrongPassword, "Password123!!!").perform();
+		new Actions(driver).sendKeys(veryStrongPassword, passkey).perform();
 		passwordMeter = driver.findElement(By.id("password-strength-meter-container")).getAttribute("class");
 		assertEquals(passwordMeter, "password-very-strong");
 		
@@ -114,7 +115,7 @@ public class CreateAccount extends Driver{
 		
 	//Input the same password
 		driver.findElement(By.id("password-confirmation")).clear();
-		driver.findElement(By.id("password-confirmation")).sendKeys("Password123!!!");
+		driver.findElement(By.id("password-confirmation")).sendKeys(passkey);
 		
 		
 	//Continue creating account
@@ -132,6 +133,6 @@ public class CreateAccount extends Driver{
 		String creationConfirm = driver.findElement(By.xpath("//div[@class=\"message-success success message\"]")).getText();
 		assertEquals(creationConfirm, "Thank you for registering with Main Website Store.");
 		
-		
+		driver.quit();
 	}
 }
