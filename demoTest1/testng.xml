@@ -10,6 +10,7 @@
 	<classes>
       <class name="demoTest1.CreateAccount"/>
       <class name="demoTest1.UserLogin"/>
+      <class name="demoTest1.EmptyCartDialog"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
