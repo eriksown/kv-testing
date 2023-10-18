@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Driver {
 	
 	//static String browser = "Chrome";
-	//sample
+	//sampling
 	static String browser = "Firefox";
 	
 	public static WebDriver driver = startWebDriver(browser);
