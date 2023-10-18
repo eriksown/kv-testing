@@ -8,7 +8,7 @@
   </groups>
   <test thread-count="5" name="Test">
 	<classes>
-	  <!--class name="demoTest1.Driver"/-->
+	  <class name="demoTest1.Driver"/>
       <class name="demoTest1.CreateAccount"/>
       <class name="demoTest1.UserLogin"/>
       <class name="demoTest1.EmptyCartDialog"/>
