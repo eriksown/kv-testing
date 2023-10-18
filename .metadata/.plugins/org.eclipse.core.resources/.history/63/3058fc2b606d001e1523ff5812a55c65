@@ -13,11 +13,11 @@ public class Driver {
 	
 	public static WebDriver startWebDriver(String browser) {
 		if (browser.equalsIgnoreCase("Chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\jdk-20\\bin\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		else if (browser.equalsIgnoreCase("Firefox")) {
-			System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Java\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Java\\jdk-20\\bin\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
 		
