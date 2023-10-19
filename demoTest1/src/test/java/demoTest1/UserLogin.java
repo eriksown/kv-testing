@@ -21,7 +21,6 @@ public class UserLogin extends Driver{
 	
 	@Test (groups = "mainRun")
 	public void login() throws InterruptedException {
-		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
 		try {

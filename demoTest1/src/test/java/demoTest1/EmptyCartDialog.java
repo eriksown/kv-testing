@@ -23,6 +23,7 @@ public class EmptyCartDialog extends Driver{
 		String emptyCartMsg = driver.findElement(By.xpath("//div[@id=\"minicart-content-wrapper\"]//div[@class=\"block-content\"]//strong")).getText();
 		assertEquals(emptyCartMsg,"You have no items in your shopping cart.");
 		
+		driver.findElement(By.id("btn-minicart-close")).click();
 		//driver.quit();
 	}
 	

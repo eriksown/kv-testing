@@ -12,6 +12,7 @@
       <class name="demoTest1.CreateAccount"/>
       <class name="demoTest1.UserLogin"/>
       <class name="demoTest1.EmptyCartDialog"/>
+      <class name="demoTest1.GridListView"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
