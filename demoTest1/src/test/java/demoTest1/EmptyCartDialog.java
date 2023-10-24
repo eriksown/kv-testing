@@ -5,13 +5,10 @@ import static org.testng.Assert.assertEquals;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 import org.testng.annotations.Test;
 
 public class EmptyCartDialog extends Driver{
-
-	WebDriver driver = Driver.driver;
 	
 	@Test (groups = "mainRun")
 	public void emptyCart() {
