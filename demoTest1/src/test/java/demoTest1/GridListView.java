@@ -30,7 +30,6 @@ public class GridListView extends Driver{
 		
 		assertTrue(driver.findElement(By.id("modes-label")).isDisplayed(),"View options available");
 		takePicture(driver, "verify-grid-view");
-		//driver.quit();
 	
 	//Verify product view is in grid
 	//Click list view

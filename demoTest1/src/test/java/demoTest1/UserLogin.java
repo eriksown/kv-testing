@@ -46,6 +46,5 @@ public class UserLogin extends Driver{
 		assertEquals(loginGreeting, "Welcome, "+fName+" "+lName+"!");
 		takePicture(driver, "verify-successful-login");
 
-		//driver.quit();
 	}
 }
