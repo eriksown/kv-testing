@@ -23,7 +23,7 @@ public class EmptyCartDialog extends Driver{
 		takePicture(driver, "verify-empty-cart");
 		
 		driver.findElement(By.id("btn-minicart-close")).click();
-		//driver.quit();
+		
 	}
 	
 	
