@@ -2,6 +2,7 @@ package demoTest1;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -18,7 +19,7 @@ public class UserLogin extends Driver{
 	String lName = CreateAccount.lName;
 	
 	@Test (groups = "mainRun")
-	public void login() throws InterruptedException {
+	public void login() throws InterruptedException, IOException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
 		try {
@@ -43,6 +44,7 @@ public class UserLogin extends Driver{
 		Thread.sleep(2000);
 		String loginGreeting = driver.findElement(By.xpath("//span[@class=\"logged-in\"]")).getText();
 		assertEquals(loginGreeting, "Welcome, "+fName+" "+lName+"!");
+		takePicture(driver, "verify-successful-login");
 
 		//driver.quit();
 	}

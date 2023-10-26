@@ -2,6 +2,7 @@ package demoTest1;
 
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -14,7 +15,7 @@ import org.testng.annotations.Test;
 public class GridListView extends Driver{
 	
 	@Test (groups = "mainRun")
-	public void changeView () {
+	public void changeView () throws IOException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 	//Hover Women menu	
 		Actions hoverWomen = new Actions(driver);
@@ -28,8 +29,8 @@ public class GridListView extends Driver{
 		waitProducts.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"products wrapper grid products-grid\"]")));
 		
 		assertTrue(driver.findElement(By.id("modes-label")).isDisplayed(),"View options available");
-		
-		driver.quit();
+		takePicture(driver, "verify-grid-view");
+		//driver.quit();
 	
 	//Verify product view is in grid
 	//Click list view

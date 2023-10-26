@@ -1,8 +1,14 @@
 package demoTest1;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -23,14 +29,17 @@ public class Driver {
 			System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Java\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
-		System.out.println("Browser should be: "+br);
 		
 		driver.manage().window().maximize();
-		System.out.println("Driver is: "+br);
 	}
 	
 	@AfterTest(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();
+	}
+	
+	public void takePicture(WebDriver driver, String testName) throws IOException {
+		File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileHandler.copy(screenshotFile , new File(".\\screenshots\\"+testName+".png"));
 	}
 }
