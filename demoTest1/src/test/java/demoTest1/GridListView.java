@@ -1,5 +1,6 @@
 package demoTest1;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
@@ -24,15 +25,27 @@ public class GridListView extends Driver{
 
 		WebDriverWait waitWomenItems = new WebDriverWait(driver, Duration.ofSeconds(1));
 		waitWomenItems.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id=\"ui-id-9\"]//span[contains(text(),'Tops')]"))).click();
-		
-		WebDriverWait waitProducts = new WebDriverWait(driver, Duration.ofSeconds(2));
-		waitProducts.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"products wrapper grid products-grid\"]")));
+	
+	//Verify product view is in grid
+		WebDriverWait waitGridProducts = new WebDriverWait(driver, Duration.ofSeconds(2));
+		waitGridProducts.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"products wrapper grid products-grid\"]")));
+		int itemsInProductList = driver.findElements(By.xpath("//div[@class=\"products wrapper list products-list\"]")).size();
+		assertEquals(0,itemsInProductList,"Items not listed in products view");
 		
 		assertTrue(driver.findElement(By.id("modes-label")).isDisplayed(),"View options available");
 		takePicture(driver, "verify-grid-view");
 	
-	//Verify product view is in grid
+	
 	//Click list view
+		driver.findElement(By.id("mode-list")).click();
+		
 	//Verify product view is updated to list
+		WebDriverWait waitListProducts = new WebDriverWait(driver, Duration.ofSeconds(2));
+		waitListProducts.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"products wrapper list products-list\"]")));
+		int itemsInGridList = driver.findElements(By.xpath("//div[@class=\"products wrapper grid products-grid\"]")).size();
+		assertEquals(0,itemsInGridList,"Items not listed in grid view");
+		
+		assertTrue(driver.findElement(By.id("modes-label")).isDisplayed(),"View options available");
+		takePicture(driver, "verify-list-view");
 	}
 }
