@@ -18,7 +18,7 @@ public class UserLogin extends Driver{
 	String fName = CreateAccount.fName;
 	String lName = CreateAccount.lName;
 	
-	@Test (groups = "mainRun")
+	@Test (groups = {"mainRun", "newTest"})
 	public void login() throws InterruptedException, IOException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		
