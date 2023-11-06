@@ -64,5 +64,6 @@ public class Pagination extends Driver{
 		
 		assertEquals(numberOfPagesActualUpdated, numberOfPagesExpectedUpdated, "Number of pages available after update");
 		takePicture(driver, "verify-updated-pagination-men");
+		//driver.quit;
 	}
 }
