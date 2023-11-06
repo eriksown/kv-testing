@@ -47,16 +47,16 @@ public class Pagination extends Driver{
 		
 	//Verify number of items in grid list after updating limiter
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", itemsPerPageSelector);
-		Thread.sleep(2000);		
+		Thread.sleep(1000);		
 		itemsPerPageSelector.selectByValue("24");
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		
 		String gridItemsUpdated = driver.findElement(By.id("toolbar-amount")).getText();
 		String itemCountUpdated = gridItemsUpdated.substring(14);
 		int itemCountIntUpdated = Integer.valueOf(itemCountUpdated);
 
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//div[@class=\"toolbar toolbar-products\"][2]//select[@id=\"limiter\"]")));
-		Thread.sleep(2000);	
+		Thread.sleep(1000);	
 		int numberOfPagesActualUpdated = (driver.findElements(By.xpath("//div[@class=\"toolbar toolbar-products\"][2]//ul[@class=\"items pages-items\"]/li")).size())-1;  //-1 is for the 'next' arrow
 		int numberOfPagesExpectedUpdated = itemCountIntUpdated/24;
 		
