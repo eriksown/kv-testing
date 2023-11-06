@@ -3,7 +3,7 @@
 <suite name="Suite">
   <groups>  
     <run>  
-      <!--include name="mainRun"/-->  
+      <include name="mainRun"/>  
       <include name="newTest"/> 
     </run>  
   </groups>
