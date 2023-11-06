@@ -31,7 +31,6 @@ public class Pagination extends Driver{
 		String gridItems = driver.findElement(By.id("toolbar-amount")).getText();
 		String itemCount = gridItems.substring(14);
 		int itemCountInt = Integer.valueOf(itemCount);
-		//System.out.println("Items Count: "+(itemCountInt));
 			
 	//Verify number in the limiter drop down
 		Select itemsPerPageSelector = new Select(driver.findElement(By.xpath("//div[@class=\"toolbar toolbar-products\"][2]//select[@id=\"limiter\"]")));
@@ -44,7 +43,6 @@ public class Pagination extends Driver{
 	//Verify page count based on number of items
 		int numberOfPagesActual = (driver.findElements(By.xpath("//div[@class=\"toolbar toolbar-products\"][2]//ul[@class=\"items pages-items\"]/li")).size())-1;  //-1 is for the 'next' arrow
 		int numberOfPagesExpected = itemCountInt/itemsPerPageInt;
-		//System.out.println("Expected: "+numberOfPagesExpected);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", itemsPerPageSelector);
 		assertEquals(numberOfPagesActual, numberOfPagesExpected, "Number of pages available");
 		takePicture(driver, "verify-default-pagination-men");
@@ -64,6 +62,6 @@ public class Pagination extends Driver{
 		
 		assertEquals(numberOfPagesActualUpdated, numberOfPagesExpectedUpdated, "Number of pages available after update");
 		takePicture(driver, "verify-updated-pagination-men");
-		//driver.quit;
+		
 	}
 }
